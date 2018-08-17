@@ -4,6 +4,9 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,5 +68,34 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
 
+        // Pega o inflater já existente
+        MenuInflater criarMenu = getMenuInflater();
+        // Cria menu a partir da leitura de um xml
+        criarMenu.inflate(R.menu.meu_menu,menu);
+
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Implementar ação ao clicar no item do menu
+
+        switch(item.getItemId()){
+            case R.id.id_capturar:
+
+
+                break;
+            case R.id.id_ler:
+
+
+                break;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
 }
