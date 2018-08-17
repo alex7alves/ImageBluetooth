@@ -85,9 +85,10 @@ public class MainActivity extends AppCompatActivity {
         // Implementar ação ao clicar no item do menu
 
         switch(item.getItemId()){
-            case R.id.id_capturar:
+            case R.id.id_bluetooth:
 
-
+                Intent IntentDispositivoP = new Intent(this, DispositivoPareado.class);
+                startActivityForResult(IntentDispositivoP, dispositivo_pareado);
                 break;
             case R.id.id_ler:
 
