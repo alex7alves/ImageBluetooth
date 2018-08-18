@@ -65,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
             else {
                 Toast.makeText(getApplicationContext(), "Bluetooth  não foi ativado", Toast.LENGTH_SHORT).show();
             }
+        }else if(requestCode ==dispositivo_pareado) {
+            if(resultCode == RESULT_OK) {
+                String temp="Você selecionou " + data.getStringExtra("btDevName") + "\n"
+                        + data.getStringExtra("btDevAddress");
+                Toast.makeText(getApplicationContext(),temp, Toast.LENGTH_SHORT).show();
+
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"Nenhum dispositivo foi selecionado", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
