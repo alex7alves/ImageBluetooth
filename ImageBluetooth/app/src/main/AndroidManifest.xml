@@ -26,6 +26,12 @@
             android:label="Dispositivo pareado"
             android:parentActivityName=".MainActivity" >
         </activity>
+
+        <activity
+            android:name=".DescobrirDispositivo"
+            android:label="Encontrar dispositivos"
+            android:parentActivityName=".MainActivity" >
+        </activity>
     </application>
 
 </manifest>

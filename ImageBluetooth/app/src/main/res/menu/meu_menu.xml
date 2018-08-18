@@ -8,8 +8,27 @@
     <item
         android:id="@+id/id_bluetooth"
         android:title="Bluetooth"
-        app:showAsAction="always" />
-
+        app:showAsAction="always"
+    >
+        <menu>
+            <item
+                android:id="@+id/id_pareado"
+                android:title="Dispositivos pareados"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/id_descobrir"
+                android:title="Descobrir dispositivos"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/id_visivel"
+                android:title="Tornar visível"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/id_conectar"
+                android:title="Conectar"
+                app:showAsAction="always" />
+        </menu>
+    </item>
     <item
         android:id="@+id/id_ler"
         android:title="Ler"

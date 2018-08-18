@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             else {
                 Toast.makeText(getApplicationContext(), "Bluetooth  não foi ativado", Toast.LENGTH_SHORT).show();
             }
-        }else if(requestCode ==dispositivo_pareado) {
+        }else if(requestCode ==dispositivo_pareado || requestCode == dispositivo_descoberto) {
             if(resultCode == RESULT_OK) {
                 String temp="Você selecionou " + data.getStringExtra("btDevName") + "\n"
                         + data.getStringExtra("btDevAddress");
@@ -95,14 +95,15 @@ public class MainActivity extends AppCompatActivity {
         // Implementar ação ao clicar no item do menu
 
         switch(item.getItemId()){
-            case R.id.id_bluetooth:
+            case R.id.id_pareado:
 
                 Intent IntentDispositivoP = new Intent(this, DispositivoPareado.class);
                 startActivityForResult(IntentDispositivoP, dispositivo_pareado);
                 break;
-            case R.id.id_ler:
+            case R.id.id_descobrir:
 
-
+                Intent DescobrirDispositivo = new Intent(this, DescobrirDispositivo.class);
+                startActivityForResult(DescobrirDispositivo,dispositivo_descoberto);
                 break;
         }
 
