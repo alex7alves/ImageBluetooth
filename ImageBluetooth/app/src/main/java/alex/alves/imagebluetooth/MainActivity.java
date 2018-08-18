@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public static int dispositivo_pareado=2;
     public static int dispositivo_descoberto=3;
 
+    ConnectionThread connect;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
                         + data.getStringExtra("btDevAddress");
                 Toast.makeText(getApplicationContext(),temp, Toast.LENGTH_SHORT).show();
 
+
+                connect = new ConnectionThread(data.getStringExtra("btDevAddress"));
+                connect.start();
             }
             else {
                 Toast.makeText(getApplicationContext(),"Nenhum dispositivo foi selecionado", Toast.LENGTH_SHORT).show();
@@ -107,7 +111,10 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-
+    public void EnviarMensagem(String mensagemBluetooth){
+        byte[] data =  mensagemBluetooth.getBytes();
+        connect.write(data);
+    }
 
 
     @Override
