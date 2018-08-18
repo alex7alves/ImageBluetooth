@@ -105,6 +105,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent DescobrirDispositivo = new Intent(this, DescobrirDispositivo.class);
                 startActivityForResult(DescobrirDispositivo,dispositivo_descoberto);
                 break;
+            case R.id.id_visivel:
+                Intent VisivelIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+                VisivelIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 50);
+                startActivity(VisivelIntent);
+                break;
         }
 
 
