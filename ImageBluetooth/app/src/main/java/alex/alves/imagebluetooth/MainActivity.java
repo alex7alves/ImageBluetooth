@@ -2,6 +2,8 @@ package alex.alves.imagebluetooth;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     ImageView tela;
-    TextView mensagem;
+    static TextView mensagem;
     BluetoothAdapter AdaptadorBt;
     public static int ativar_bluetooth=1;
     public static int dispositivo_pareado=2;
@@ -77,6 +79,36 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    // deveria ser estatic
+    public  static Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+
+            Bundle bundle = msg.getData();
+            byte[] data = bundle.getByteArray("data");
+            String dataString= new String(data);
+
+            if(dataString.equals("---N")){
+               // Toast.makeText(getApplicationContext(),"Erro durante a conexao", Toast.LENGTH_SHORT).show();
+                mensagem.setText("Erro durante a conexao");
+            }
+
+
+            else if(dataString.equals("---S")) {
+                mensagem.setText("Conectado");
+              //  Toast.makeText(getApplicationContext(),"Conectado", Toast.LENGTH_SHORT).show();
+            }
+
+            else {
+
+                mensagem.setText(new String(data));
+            }
+        }
+    };
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

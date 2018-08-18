@@ -32,6 +32,9 @@
             android:label="Encontrar dispositivos"
             android:parentActivityName=".MainActivity" >
         </activity>
+
+
+
     </application>
 
 </manifest>
